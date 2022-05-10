@@ -1,19 +1,24 @@
-0. Environment
+# Fuzzing C programs with Persistent mode 
 
-OS: ubuntu 20.04 LTS
+## 0. Environment
 
-1. install and build llvm and clang
+- OS: ubuntu 20.04 LTS
 
-1-1. install llvm-11 and clang-11 from ubuntu package manager (apt)
+## 1. install and build llvm and clang
 
+### 1-1. install llvm-11 and clang-11 from ubuntu package manager (apt)
+
+```
 $ sudo apt-get update
 $ sudo apt-get install -y build-essential python3-dev automake git flex bison libglib2.0-dev libpixman-1-dev python3-setuptools
 $ sudo apt-get install -y lld-11 llvm-11 llvm-11-dev clang-11
 $ sudo apt-get install -y gcc-$(gcc --version|head -n1|sed 's/.* //'|sed 's/\..*//')-plugin-dev libstdc++-$(gcc --version|head -n1|sed 's/.* //'|sed 's/\..*//')-dev
 $ sudo apt-get install -y ninja-build
+```
 
-1-2. download and build llvm-13 and clang-13
+### 1-2. download and build llvm-13 and clang-13
 
+```
 $ sudo apt install binutils-dev
 $ wget https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-13.0.1.tar.gz
 $ tar -xvf llvmorg-13.0.1.tar.gz
@@ -36,9 +41,11 @@ $ cmake \
     -DLLVM_TARGETS_TO_BUILD="host" \
     ../llvm/
 $ cmake --build . -j4
+```
 
-2. download and build AFL++ 4.00c
+## 2. download and build AFL++ 4.00c
 
+```
 $ wget https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/4.00c.tar.gz
 $ tar -xvf 4.00c.tar.gz
 $ cd AFLplusplus-4.00c
@@ -49,11 +56,13 @@ else if use llvm-13 (clang-13):
     $ export LLVM_CONFIG="/path/to/llvm13/bin/llvm-config"
     $ export LD_LIBRARY_PATH="$(llvm-config --libdir)${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     $ make distrib
+```
 
-3. Fuzzing with AFL++ using persistent mode
+## 3. Fuzzing with AFL++ using persistent mode
 
-3-1. build a target program
+### 3-1. build a target program
 
+```
 $ cd /path/to/a/target/program/
 $ vim /path/to/main/file
 --------------------------------------
@@ -72,10 +81,12 @@ if use LLVM-PCGUARD mode (llvm-11):
 else if use LTO-PCGUARD (llvm-13, to support allow/deny list for instrumentation):
     $ CC=/path/to/afl/afl-clang-lto CXX=/path/to/afl/afl-clang-lto++ RANLIB=/path/to/llvm13/bin/llvm-ranlib AR=/path/to/llvm13/bin/llvm-ar ./configure [...options...]
 $ make
+```
 NOTE: refer the file Build Instructions for Targets to find details about build instructions for several target programs
 
-3-2. run fuzzing
+### 3-2. run fuzzing
 
+```
 $ mkdir fuzz
 $ cp <excutable> fuzz/
 $ mkdir fuzz/in
@@ -83,4 +94,5 @@ $ cp /path/to/seed/inputs fuzz/in/
 $ cd fuzz
 $ sudo /path/to/afl/afl-system-config
 $ /path/to/afl/afl-fuzz -i in/ -o out [..options..] -- ./<excutable> @@
+```
 
