@@ -5,6 +5,8 @@
 - ubuntu 20.04 LTS
 - AFL++ LTO mode necessary (LLVM-11+)
 
+![VarEdgeExtractionOverview](https://user-images.githubusercontent.com/3887348/167570455-6da1f08f-ee7e-468c-abf3-39f5ae4918ae.png "VarEdgeExtractionOverview")
+
 ## 1. Extract edge IDs
 
 ```
