@@ -4,6 +4,6 @@
 
 0-2. AFL++ LTO mode necessary (LLVM-11+)
 
-1. Extract edge IDs
+1. Build target program with AFL++ LTO mode
 
-
+ 
