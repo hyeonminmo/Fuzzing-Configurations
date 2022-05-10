@@ -82,17 +82,17 @@ else if use LTO-PCGUARD (llvm-13, to support allow/deny list for instrumentation
     $ CC=/path/to/afl/afl-clang-lto CXX=/path/to/afl/afl-clang-lto++ RANLIB=/path/to/llvm13/bin/llvm-ranlib AR=/path/to/llvm13/bin/llvm-ar ./configure [...options...]
 $ make
 ```
-NOTE: refer the file Build Instructions for Targets to find details about build instructions for several target programs
+NOTE: refer the [Build_Instructions_for_Targets.md](Build_Instructions_for_Targets.md)) to find details about build instructions for several target programs
 
 ### 3-2. run fuzzing
 
 ```
 $ mkdir fuzz
-$ cp <excutable> fuzz/
+$ cp executable fuzz/
 $ mkdir fuzz/in
 $ cp /path/to/seed/inputs fuzz/in/
 $ cd fuzz
 $ sudo /path/to/afl/afl-system-config
-$ /path/to/afl/afl-fuzz -i in/ -o out [..options..] -- ./<excutable> @@
+$ /path/to/afl/afl-fuzz -i in/ -o out [..options..] -- ./executable @@
 ```
-
+`executable` 

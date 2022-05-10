@@ -10,7 +10,7 @@
 
 ![VarstoReinitExtractionOverview](https://user-images.githubusercontent.com/3887348/167619107-4d6562ea-180b-41fe-9902-5cd1ed2bd1d7.png "VarstoReinitExtractionOverview")
 
-## 2. Extract all global variables of a target program
+## 2. Make a list of global variables for a target program
 
 ```
 $ cd /path/to/target/program/
@@ -24,7 +24,7 @@ $ gdb target
 (gdb) quit
 ```
 
-## 3. Extract variable input files
+## 3. Extract variable seed input files
 
 ```
 $ mkdir fuzz
