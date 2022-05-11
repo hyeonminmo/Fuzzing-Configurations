@@ -64,7 +64,7 @@ $ vim fuzz/fuzz_targets/fuzz_target_1.rs
 ---------------------------------
 ```
 
-For some Rust crate such as claxon, the crate provide fuzz targets.
+For some Rust crates such as claxon, the crate provide fuzz targets.
 ```
 $ cd /path/to/the/claxon
 $ cargo fuzz list
