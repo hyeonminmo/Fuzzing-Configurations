@@ -4,9 +4,9 @@
 
 - OS: ubuntu 20.04 LTS
 
-## 1. install and build llvm and clang
+## 1. Install and build llvm and clang
 
-### 1-1. install llvm-11 and clang-11 from ubuntu package manager (apt)
+### 1-1. Install llvm-11 and clang-11 from ubuntu package manager (apt)
 
 ```
 $ sudo apt-get update
@@ -16,7 +16,7 @@ $ sudo apt-get install -y gcc-$(gcc --version|head -n1|sed 's/.* //'|sed 's/\..*
 $ sudo apt-get install -y ninja-build
 ```
 
-### 1-2. download and build llvm-13 and clang-13
+### 1-2. Download and build llvm-13 and clang-13
 
 ```
 $ sudo apt install binutils-dev
@@ -43,7 +43,7 @@ $ cmake \
 $ cmake --build . -j4
 ```
 
-## 2. download and build AFL++ 4.00c
+## 2. Download and build AFL++ 4.00c
 
 ```
 $ wget https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/4.00c.tar.gz
@@ -60,7 +60,7 @@ else if use llvm-13 (clang-13):
 
 ## 3. Fuzzing with AFL++ using persistent mode
 
-### 3-1. build a target program
+### 3-1. Build a target program
 
 ```
 $ cd /path/to/a/target/program/
@@ -82,9 +82,9 @@ else if use LTO-PCGUARD (llvm-13, to support allow/deny list for instrumentation
     $ CC=/path/to/afl/afl-clang-lto CXX=/path/to/afl/afl-clang-lto++ RANLIB=/path/to/llvm13/bin/llvm-ranlib AR=/path/to/llvm13/bin/llvm-ar ./configure [...options...]
 $ make
 ```
-NOTE: refer the [Build_Instructions_for_Targets.md](Build_Instructions_for_Targets.md) to find details about build instructions for several target programs
+NOTE: refer the [Build instructions for targets](Build_Instructions_for_Targets.md) to find details about build instructions for several target programs
 
-### 3-2. run fuzzing
+### 3-2. Run fuzzing
 
 ```
 $ mkdir fuzz
@@ -95,4 +95,5 @@ $ cd fuzz
 $ sudo /path/to/afl/afl-system-config
 $ /path/to/afl/afl-fuzz -i in/ -o out [..options..] -- ./executable @@
 ```
-`executable` 
+`executable` is the name of executable binary of the target program.
+
