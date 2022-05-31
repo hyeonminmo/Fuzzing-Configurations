@@ -3,7 +3,7 @@
 ## 1. bison-3.7
 ```
 $ wget https://ftp.gnu.org/gnu/bison/bison-3.7.tar.xz
-$ tar -xvf bison-3.7.tar.gz
+$ tar -xvf bison-3.7.tar.xz
 $ cd bison-3.7
 $ ./configure --prefix=/path/to/install/bison
 $ make
