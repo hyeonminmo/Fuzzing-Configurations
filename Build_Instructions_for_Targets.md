@@ -3,7 +3,7 @@
 ## 1. bison-3.7
 ```
 $ wget https://ftp.gnu.org/gnu/bison/bison-3.7.tar.xz
-$ tar -xvf bison-3.7.tar.gz
+$ tar -xvf bison-3.7.tar.xz
 $ cd bison-3.7
 $ ./configure --prefix=/path/to/install/bison
 $ make
@@ -23,7 +23,7 @@ $ make install
 $ wget https://ftp.gnu.org/gnu/binutils/binutils-2.36.1.tar.xz
 $ tar -xvf binutils-2.36.1.tar.xz
 $ cd binutils-2.36.1
-$ ./configure --enable-targets=all
+$ ./configure --enable-targets=all --prefix=/path/to/install/binutils_nm
 $ make
 ```
 ## 4. binutils/size 2.36.1
@@ -31,7 +31,7 @@ $ make
 $ wget https://ftp.gnu.org/gnu/binutils/binutils-2.36.1.tar.xz
 $ tar -xvf binutils-2.36.1.tar.xz
 $ cd binutils-2.36.1
-$ ./configure --enable-targets=all
+$ ./configure --enable-targets=all --prefix=/path/to/install/binutils_size
 $ make
 ```
 ## 5. exiv2 0.27.2 
