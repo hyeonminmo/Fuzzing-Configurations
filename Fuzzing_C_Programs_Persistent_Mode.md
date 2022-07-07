@@ -108,7 +108,6 @@ This will cause issues: there will be an extended delay between stumbling upon a
     and temporarily modify /proc/sys/kernel/core_pattern, like so:
     echo core >/proc/sys/kernel/core_pattern
     ...
-
 ```
 #### Solution
 
@@ -122,6 +121,7 @@ $ exit
 ```
 Whoops, your system uses on-demand CPU frequency scaling, adjusted between 2148 and 4964 MHz. 
 Unfortunately, the scaling algorithm in the kernel is imperfect and can miss the short-lived processes spawned by  afl-fuzz. To keep things moving, run these commands as root:
+...
 ```
 
 #### Solution
