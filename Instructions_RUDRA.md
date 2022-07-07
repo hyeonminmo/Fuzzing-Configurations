@@ -17,12 +17,12 @@ After the instructions, the directory `rudra-home` is created in your `HOME` dir
 
 ### 1-1. Permission denied docker
 
+Permission denied message :
 ```
 docker: Got permission denied while trying to connect to the Docker daemon socket at unix:
 ...
 ```
-
-### 1-2. solution
+Solution :
 ```
 $ sudo groupadd docker // create docker group
 $ sudo usermod -aG docker $USER // add the user in docker group

@@ -99,7 +99,7 @@ $ /path/to/afl/afl-fuzz -i in/ -o out [..options..] -- ./executable @@
 
 ### 3-3. Failed running
 
-#### 1) Error message
+1) Error message :
 ```
 Hmm, your system is configured to send core dump notifications to an external utility. 
 This will cause issues: there will be an extended delay between stumbling upon a crash and having this information relayed to the fuzzer via the standard waitpid() API.
@@ -109,22 +109,20 @@ This will cause issues: there will be an extended delay between stumbling upon a
     echo core >/proc/sys/kernel/core_pattern
     ...
 ```
-#### Solution
-
+Solution :
 ```
 $ sudo su 
 $ echo core >/proc/sys/kernel/core_pattern 
 $ exit 
 ```
-#### 2) Error message
 
+2) Error message :
 ```
 Whoops, your system uses on-demand CPU frequency scaling, adjusted between 2148 and 4964 MHz. 
 Unfortunately, the scaling algorithm in the kernel is imperfect and can miss the short-lived processes spawned by  afl-fuzz. To keep things moving, run these commands as root:
 ...
 ```
-
-#### Solution
+Solution :
 ```
 $ sudo su
 $ cd /sys/devices/system/cpu
