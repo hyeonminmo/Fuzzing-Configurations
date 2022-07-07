@@ -15,6 +15,20 @@ $ export RUDRA_RUNNER_HOME=$HOME/rudra-home
 ```
 After the instructions, the directory `rudra-home` is created in your `HOME` directory.
 
+### 1-1. Permission denied docker
+
+```
+docker: Got permission denied while trying to connect to the Docker daemon socket at unix:
+...
+```
+
+### 1-2. solution
+```
+$ sudo groupadd docker // create docker group
+$ sudo usermod -aG docker $USER // add the user in docker group
+$ newgrp docker // resetting
+```
+
 ## 2. Run RUDRA for a Rust crate
 ```
 $ docker-helper/docker-cargo-rudra /path/to/crate
